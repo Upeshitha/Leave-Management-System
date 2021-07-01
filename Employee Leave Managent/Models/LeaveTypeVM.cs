@@ -10,6 +10,7 @@ namespace Employee_Leave_Managent.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [Display(Name ="Date Created")]
         public DateTime DateCreated { get; set; }
     }
 

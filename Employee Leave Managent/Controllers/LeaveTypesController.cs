@@ -44,15 +44,28 @@ namespace Employee_Leave_Managent.Controllers
         // POST: LeaveTypesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(LeaveTypeVM model)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var leaveType = _mapper.Map<LeaveType>(model);
+                leaveType.DateCreated = DateTime.Now;
+                var isSuccess = _repo.Create(leaveType);
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Something went wrong!");
+                    return View(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Something went wrong!");
+                return View(model);
             }
         }
 

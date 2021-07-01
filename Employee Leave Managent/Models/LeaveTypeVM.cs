@@ -12,6 +12,6 @@ namespace Employee_Leave_Managent.Models
         [Required]
         public string Name { get; set; }
         [Display(Name ="Date Created")]
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
     }   
 }

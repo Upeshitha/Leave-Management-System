@@ -2,6 +2,7 @@
 using Employee_Leave_Managent.Contracts;
 using Employee_Leave_Managent.Data;
 using Employee_Leave_Managent.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Employee_Leave_Managent.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository _repo;
@@ -21,7 +23,8 @@ namespace Employee_Leave_Managent.Controllers
             _repo = repo;
             _mapper = mapper;
         }
-        // GET: LeaveTypesController
+
+        // GET: LeaveTypesController       
         public ActionResult Index()
         {
             var leavetypes = _repo.FindAll().ToList();

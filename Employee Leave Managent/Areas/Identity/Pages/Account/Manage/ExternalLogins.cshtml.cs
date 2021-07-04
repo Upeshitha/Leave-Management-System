@@ -6,17 +6,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Employee_Leave_Managent.Data.Migrations;
 
 namespace Employee_Leave_Managent.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<Employee> _userManager;
+        private readonly SignInManager<Employee> _signInManager;
 
         public ExternalLoginsModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<Employee> userManager,
+            SignInManager<Employee> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

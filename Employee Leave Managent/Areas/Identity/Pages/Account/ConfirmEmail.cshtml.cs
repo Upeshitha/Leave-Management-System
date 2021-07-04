@@ -8,15 +8,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Employee_Leave_Managent.Data.Migrations;
 
 namespace Employee_Leave_Managent.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Employee> _userManager;
 
-        public ConfirmEmailModel(UserManager<IdentityUser> userManager)
+        public ConfirmEmailModel(UserManager<Employee> userManager)
         {
             _userManager = userManager;
         }

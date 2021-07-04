@@ -2,6 +2,7 @@
 using Employee_Leave_Managent.Contracts;
 using Employee_Leave_Managent.Data;
 using Employee_Leave_Managent.Models;
+using Employee_Leave_Managent.Data.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -19,13 +20,13 @@ namespace Employee_Leave_Managent.Controllers
         private readonly ILeaveTypeRepository _leaveRepo;
         private readonly ILeaveAllocationRepository _leaveAllocationRepo;
         private readonly IMapper _mapper;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Employee> _userManager;
 
         public LeaveAllocationController(
             ILeaveTypeRepository leaveRepo,
             ILeaveAllocationRepository leaveAllocationRepo,
             IMapper mapper,
-            UserManager<IdentityUser> userManager
+            UserManager<Employee> userManager
         )
         {
             _leaveRepo = leaveRepo;
@@ -69,6 +70,13 @@ namespace Employee_Leave_Managent.Controllers
                 _leaveAllocationRepo.Create(leaveallocation);
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        public ActionResult ListEmployees()
+        {
+            var employees = _userManager.GetUsersInRoleAsync("Employee").Result;
+            var model = _mapper.Map<List<EmployeeVM>>(employees);
+            return View(model);
         }
 
         // GET: LeaveAllocationController/Details/5

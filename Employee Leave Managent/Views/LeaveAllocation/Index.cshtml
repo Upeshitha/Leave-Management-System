@@ -28,7 +28,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>            
             <td>
-                @Html.ActionLink("Allocate to Employees","SetLeave", new { id = item.Id }) |
+                @*@Html.ActionLink("Allocate to Employees","SetLeave", new { id = item.Id }, new {@class = "btn btn-success"})*@ 
+                <a class="btn btn-outline-success" asp-action="SetLeave" asp-route-id="@item.Id">
+                    <i class="fa fa-pencil"></i> Allocate To Employees
+                </a>
             </td>
         </tr>
 }

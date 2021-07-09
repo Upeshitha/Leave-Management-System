@@ -72,7 +72,7 @@
             <li class="list-group-item">
                 <h6>
                     @item.LeaveType.Name <span class="badge badge-secondary">@item.NumberOfDays</span> |
-                    <a class="btn btn-outline-warning">
+                    <a asp-action="Edit" asp-route-id ="@item.Id" class="btn btn-outline-warning">
                         <i class="fa fa-pencil"></i> Edit
                     </a>
                 </h6>

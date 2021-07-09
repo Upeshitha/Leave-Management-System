@@ -25,6 +25,15 @@ namespace Employee_Leave_Managent.Models
         public List<LeaveTypeVM> LeaveTypes { get; set; }
     }
 
+    public class EditLeaveAllocationVM
+    {
+        public int Id { get; set; }
+        public EmployeeVM Employee { get; set; }
+        public string EmployeeId { get; set; }
+        public int NumberOfDays { get; set; }
+        public LeaveTypeVM LeaveType { get; set; }
+    }
+
     public class ViewLeaveAllocationVM
     {
         public EmployeeVM Employee { get; set; }

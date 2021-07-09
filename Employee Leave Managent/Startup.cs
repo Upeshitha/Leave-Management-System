@@ -1,6 +1,7 @@
 using AutoMapper;
 using Employee_Leave_Managent.Contracts;
 using Employee_Leave_Managent.Data;
+using Employee_Leave_Managent.Data.Migrations;
 using Employee_Leave_Managent.Mappings;
 using Employee_Leave_Managent.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -42,7 +43,7 @@ namespace Employee_Leave_Managent
 
             services.AddAutoMapper(typeof(Maps));
             
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<Employee>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -54,7 +55,7 @@ namespace Employee_Leave_Managent
         public void Configure(
             IApplicationBuilder app, 
             IWebHostEnvironment env,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager
         )
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Employee_Leave_Managent.Data
 {
-    public class LeaveHistory
+    public class LeaveRequest
     {
         [Key]
         public int Id { get; set; }

@@ -1,0 +1,56 @@
+﻿@model Employee_Leave_Managent.Models.LeaveRequestVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Review @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname 's Leave Request</h1>
+<h4>
+    @Html.DisplayNameFor(model => model.DateRequested) - @Html.DisplayFor(model => model.DateRequested)
+</h4>
+
+<div>
+    <h4>LeaveRequestVM</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestingEmployee)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LeaveType.Name)
+        </dd>       
+    </dl>
+</div>
+<div>
+    @if (Model.Approved == null)
+    {
+        <a class="btn btn-success" asp-action="ApproveRequest" asp-route-id="@Model.Id">
+            <i class="fa fa-check"></i> Approve
+        </a>
+        <a class="btn btn-danger" asp-action="RejectRequest" asp-route-id="@Model.Id">
+            <i class="fa fa-remove"></i> Reject
+        </a>
+    }
+    <a class="btn btn-outline-secondary" asp-action="Index">
+        <i class="fa fa-arrow-left"></i> Back to List
+    </a>
+</div>

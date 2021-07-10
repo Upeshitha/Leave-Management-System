@@ -57,9 +57,59 @@ namespace Employee_Leave_Managent.Controllers
         }
 
         // GET: LeaveRequestController/Details/5
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            return View();
+            var leaveRequest = _leaveRequestRepo.FindById(id);
+            var model = _mapper.Map<LeaveRequestVM>(leaveRequest);
+            return View(model);
+        }
+
+        public ActionResult ApproveRequest(int id)
+        {
+            try
+            {
+                var user = _userManager.GetUserAsync(User).Result;
+                var leaveRequest = _leaveRequestRepo.FindById(id);
+                var employeeid = leaveRequest.RequestingEmployeeId;
+                var leaveTypeid = leaveRequest.LeaveTypeId;
+                var allocation = _leaveAllocRepo.GetLeaveAllocationsByEmployeeAndType(employeeid,leaveTypeid);
+                int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
+                allocation.NumberOfDays = allocation.NumberOfDays - daysRequested;
+                
+                leaveRequest.Approved = true;
+                leaveRequest.ApprovedById = user.Id;
+                leaveRequest.DateActioned = DateTime.Now;
+
+                _leaveRequestRepo.Update(leaveRequest);
+                _leaveAllocRepo.Update(allocation);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            
+        }
+
+        public ActionResult RejectRequest(int id)
+        {
+            try
+            {
+                var user = _userManager.GetUserAsync(User).Result;
+                var leaveRequest = _leaveRequestRepo.FindById(id);
+                leaveRequest.Approved = false;
+                leaveRequest.ApprovedById = user.Id;
+                leaveRequest.DateActioned = DateTime.Now;
+
+                _leaveRequestRepo.Update(leaveRequest);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
         }
 
         // GET: LeaveRequestController/Create

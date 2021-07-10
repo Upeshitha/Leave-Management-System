@@ -6,7 +6,9 @@
 }
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">
+        <i class="fa fa-plus"></i> Add Leave For Employee
+    </a>
 </p>
 
 <div class="row">
@@ -109,9 +111,9 @@
                     }
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="fa fa-file"></i> Review
+                    </a> 
                 </td>
             </tr>
         }

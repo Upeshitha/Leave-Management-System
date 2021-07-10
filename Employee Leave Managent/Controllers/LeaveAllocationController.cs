@@ -84,7 +84,7 @@ namespace Employee_Leave_Managent.Controllers
         {
             var employee = _mapper.Map<EmployeeVM>(_userManager.FindByIdAsync(id).Result);
             var allocations = _mapper.Map<List<LeaveAllocationVM>>
-                (_leaveAllocationRepo.GetLeaveAllocationsByEmployees(id));
+                (_leaveAllocationRepo.GetLeaveAllocationsByEmployee(id));
             var model = new ViewLeaveAllocationVM
             {
                 Employee = employee,

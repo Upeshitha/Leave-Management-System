@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -16,7 +14,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
                 <h1 class="card-title">@Model.TotalRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.TotalRequests)</h5>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.TotalRequests)</h5>
             </div>
         </div>
     </div>
@@ -24,7 +22,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
                 <h1 class="card-title text-warning">@Model.PendingRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.PendingRequests)</h5>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.PendingRequests)</h5>
             </div>
         </div>
     </div>
@@ -32,7 +30,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
                 <h1 class="card-title text-success">@Model.ApprovedRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.ApprovedRequests)</h5>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.ApprovedRequests)</h5>
             </div>
         </div>
     </div>
@@ -40,7 +38,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
                 <h1 class="card-title text-danger">@Model.RejectedRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.RejectedRequests)</h5>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.RejectedRequests)</h5>
             </div>
         </div>
     </div>

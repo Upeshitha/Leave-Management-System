@@ -58,10 +58,14 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateRequested)
+                @Html.DisplayFor(modelItem => item.DateRequested, new { @value = item.DateRequested.ToString("yyyy-mm-dd")})
             </td>
             <td>
-                @if (item.Approved == true)
+                @if (item.Cancelled)
+                {
+                    <span class="badge badge-secondary">Cancelled</span>
+                }
+                else if (item.Approved == true)
                 {
                     <span class="badge badge-success">Approved</span>
                 }
@@ -75,7 +79,7 @@
                 }
             </td>
             <td>
-                @if (item.StartDate < DateTime.Now || item.Approved == false)
+                @if ((!item.Cancelled && item.StartDate > DateTime.Now && item.Approved == null))
                 {
                     <a asp-action="CancelRequest" class="btn btn-danger" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to cancel ')">
                        <i class="fa fa-trash" aria-hidden="true"></i>

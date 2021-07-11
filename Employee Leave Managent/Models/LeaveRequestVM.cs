@@ -29,9 +29,13 @@ namespace Employee_Leave_Managent.Models
         public DateTime DateActioned { get; set; }
         [Display(Name = "Approval State")]
         public bool? Approved { get; set; }
+        public bool Cancelled { get; set; }
         public EmployeeVM ApprovedBy { get; set; }
         [Display(Name = "Approver Name")]
         public string ApprovedById { get; set; }
+        [Display(Name ="Employee Comments")]
+        [MaxLength(300)]
+        public string RequestComments { get; set; }
     }
 
     public class AdminLeaveRequestViewVM
@@ -58,6 +62,9 @@ namespace Employee_Leave_Managent.Models
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
         [Display(Name ="Leave Type")]
         public int LeaveTypeId { get; set; }
+        [Display(Name = "Employee Comments")]
+        [MaxLength(300)]
+        public string RequestComments { get; set; }
 
     }
 

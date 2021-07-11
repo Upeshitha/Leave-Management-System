@@ -49,6 +49,14 @@ namespace Employee_Leave_Managent.Repository
             return LeaveHistory;
         }
 
+        public ICollection<LeaveRequest> GetLeaveRequestsByEmployee(string employeeid)
+        {
+            var leaveRequests = FindAll()
+                .Where(q => q.RequestingEmployeeId == employeeid)
+                .ToList();
+            return leaveRequests;
+        }
+
         public bool isExists(int id)
         {
             var exist = _db.LeaveRequests.Any(q => q.Id == id);

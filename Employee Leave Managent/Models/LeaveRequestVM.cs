@@ -60,4 +60,10 @@ namespace Employee_Leave_Managent.Models
         public int LeaveTypeId { get; set; }
 
     }
+
+    public class EmployeeLeaveRequestViewVM
+    {
+        public List<LeaveAllocationVM> LeaveAllocations { get; set; }
+        public List<LeaveRequestVM> LeaveRequests { get; set; }
+    }
 }

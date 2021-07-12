@@ -1,4 +1,4 @@
-# Employee Leave Management System
+# Leave Management System
 
 Leave Management project is a .NET Core web application. When developing this application, it has used the following techniques.
 

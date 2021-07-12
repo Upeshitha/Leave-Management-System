@@ -28,7 +28,7 @@ Leave Management project is a .NET Core web application. When developing this ap
 ![Database diagram](https://user-images.githubusercontent.com/39452187/125213706-0a132080-e2d1-11eb-9753-331d23a47df0.png)
 
 ## Overview
-In many companies, Employee Leave Management systems can sometimes be taken into account retrospectively. Some use a paper-based system. Others simply mark the day in their calendars, if they do so at all. This practice raises many questions, especially when asked from the employee’s point of view.
+In many companies, Employee Leave Management systems can sometimes be taken into account retrospectively. Some use a paper-based system. Others mark the day in their calendars if they do so at all. This practice grows many issues, especially when asked from the employee’s point of view.
 
 This system has the following features.
 - Ability to apply for leave at any time of the day

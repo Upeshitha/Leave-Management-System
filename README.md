@@ -38,18 +38,13 @@ This system has the following features.
 - The ability for the admin to allocate the leaves for all employees at once
 - The admin can change the amount of leave of the employee
 
-## Sample images:
+## Sample Videos:
 ### Admin View
+![Admin View](https://user-images.githubusercontent.com/39452187/126055054-d4e7598a-6a9a-4377-a82e-5cfa725c111f.gif)
 
-![Leave types](https://user-images.githubusercontent.com/39452187/125213715-1a2b0000-e2d1-11eb-8906-a31f1abc0f3d.JPG)
----
-![request log](https://user-images.githubusercontent.com/39452187/125213719-21eaa480-e2d1-11eb-8821-106899951ede.JPG)
 
 ### Employee View
-
-![NavEmployee](https://user-images.githubusercontent.com/39452187/125213983-5874ef00-e2d2-11eb-96e5-2e6df8d9aa8b.JPG)
-![ApplyLeave](https://user-images.githubusercontent.com/39452187/125214159-1ef0b380-e2d3-11eb-923f-8ebc4b1b40ce.JPG)
-![My leave allocation](https://user-images.githubusercontent.com/39452187/125214164-257f2b00-e2d3-11eb-8178-47f65e3baf71.JPG)
+![User View](https://user-images.githubusercontent.com/39452187/126055062-255e3c29-a987-43c7-b3c5-638a2946f0e4.gif)
 
 ## Packages
 
